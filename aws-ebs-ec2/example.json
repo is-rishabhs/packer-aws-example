@@ -6,6 +6,15 @@
   "builders": [
     {
       "type": "amazon-ebs",
+      "launch_block_device_mappings": [
+        {
+          "device_name": "/dev/sda1",
+          "volume_size": "100",
+          "volume_type": "gp2",
+          "delete_on_termination": "true",
+          "encrypted": true
+        }
+      ],
       "access_key": "{{user `aws_access_key`}}",
       "secret_key": "{{user `aws_secret_key`}}",
       "region": "eu-central-1",
